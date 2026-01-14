@@ -459,10 +459,9 @@
             }
         }
 
-        @media (max-width: 480px) {
+         @media (max-width: 768px) {
             .hero {
-                padding-top: 140px;
-                padding-bottom: 60px;
+                background-position: center top;
             }
         }
 
@@ -652,6 +651,7 @@
             font-weight: 700;
         }
 
+        /* efeito hover para ampliar imagem da galeria */
         .carousel {
             position: relative;
             cursor: zoom-in;
@@ -695,13 +695,9 @@
             transform: translate(-50%, -50%) scale(1);
         }
 
-        @media (max-width: 768px) {
-            .carousel::after {
-                opacity: 0.2;
-            }
-
-            .carousel::before {
-                opacity: 0.8;
-                font-size: 1.4rem;
-            }
+        .carousel {
+            position: relative;
         }
+
+
+       
