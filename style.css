@@ -705,40 +705,60 @@
             position: relative;
         }
 
-        /* ===== DICA MOBILE: aparece 2s e some (controlado por JS) ===== */
-        @media (max-width: 768px) {
-            .carousel {
-                position: relative;
-            }
 
-            .carousel::after {
-                content: "🔍 Toque para ampliar";
-                position: absolute;
-                left: 50%;
-                bottom: 14px;
-                transform: translateX(-50%);
+        /* ===== CTA PREMIUM NA IMAGEM: "Clique/Toque para ampliar" ===== */
+        .carousel {
+            position: relative;
+        }
 
-                background: rgba(0, 0, 0, 0.45);
-                color: #fff;
-                padding: 8px 14px;
-                border-radius: 14px;
+               /* pill */
+        .carousel::after {
+            content: "🔍 Ampliar foto";
+            position: absolute;
+            left: 50%;
+            bottom: 12px;
+            transform: translateX(-50%);
 
-                font-size: 0.85rem;
-                font-weight: 600;
-                text-align: center;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
 
-                z-index: 6;
-                pointer-events: none;
+            padding: 8px 12px;
+            border-radius: 999px;
 
-                opacity: 0;
-                transition: opacity 0.25s ease;
+            background: transparent;
+            color: white;
 
-                backdrop-filter: blur(6px);
-                -webkit-backdrop-filter: blur(6px);
-            }
+            font-size: 0.92rem;
+            font-weight: 600;
 
-            /* quando o JS adicionar essa classe, aparece */
-            .carousel.show-hint::after {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+
+            opacity: 0;
+            transform: translateX(-50%) translateY(6px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        /* ícone (sem emoji, bem clean) */
+        .carousel.show-hint::after {
+            content: "🔍 Ampliar foto";
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* desktop: aparece no hover (bem discreto) */
+        @media (min-width: 769px) {
+            .carousel:hover::after {
+                content: "🔍 Clique para ampliar";
                 opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+
+            .carousel:hover::before {
+                opacity: 0.55;
             }
         }
