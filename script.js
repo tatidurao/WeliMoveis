@@ -131,3 +131,41 @@ const footerObserver = new IntersectionObserver(entries => {
 });
 
 footerObserver.observe(footer);
+
+
+// ===== HINT MOBILE: "🔍 Toque para ampliar" por 2s e só 1 vez por card =====
+(function () {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (!isMobile) return;
+
+    const carousels = document.querySelectorAll(".carousel");
+
+    const hintObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const carousel = entry.target;
+
+            // evita repetir no mesmo card
+            if (carousel.dataset.hintShown === "true") {
+                obs.unobserve(carousel);
+                return;
+            }
+
+            carousel.dataset.hintShown = "true";
+
+            // mostra
+            carousel.classList.add("show-hint");
+
+            // some sozinho após 2s
+            setTimeout(() => {
+                carousel.classList.remove("show-hint");
+            }, 2000);
+
+            // não observa mais esse card
+            obs.unobserve(carousel);
+        });
+    }, { threshold: 0.6 });
+
+    carousels.forEach(c => hintObserver.observe(c));
+})();

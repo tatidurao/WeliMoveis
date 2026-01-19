@@ -459,7 +459,7 @@
             }
         }
 
-         @media (max-width: 768px) {
+        @media (max-width: 768px) {
             .hero {
                 background-position: center top;
             }
@@ -585,8 +585,9 @@
                 display: none;
             }
         }
+
         @media (max-width: 768px) {
-            .whatsapp-left{
+            .whatsapp-left {
                 display: none;
             }
         }
@@ -704,5 +705,40 @@
             position: relative;
         }
 
+        /* ===== DICA MOBILE: aparece 2s e some (controlado por JS) ===== */
+        @media (max-width: 768px) {
+            .carousel {
+                position: relative;
+            }
 
-       
+            .carousel::after {
+                content: "🔍 Toque para ampliar";
+                position: absolute;
+                left: 50%;
+                bottom: 14px;
+                transform: translateX(-50%);
+
+                background: rgba(0, 0, 0, 0.45);
+                color: #fff;
+                padding: 8px 14px;
+                border-radius: 14px;
+
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-align: center;
+
+                z-index: 6;
+                pointer-events: none;
+
+                opacity: 0;
+                transition: opacity 0.25s ease;
+
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+            }
+
+            /* quando o JS adicionar essa classe, aparece */
+            .carousel.show-hint::after {
+                opacity: 1;
+            }
+        }
