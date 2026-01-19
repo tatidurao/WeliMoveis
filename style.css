@@ -85,6 +85,7 @@
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
                 url('./img/3d-model-house-room.jpg') no-repeat center center/cover;
             color: var(--white);
+           
             padding: 0 20px;
             margin-top: 60px;
         }
@@ -432,7 +433,7 @@
 
 
 
-        /* --- RESPONSIVIDADE --- */
+        /* --- RESPONSIVIDADE --- 
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.2rem;
@@ -477,7 +478,7 @@
             .card-info h3 {
                 font-size: 1.2rem;
             }
-        }
+        }*/
 
         @media (max-width: 768px) {
 
@@ -550,6 +551,10 @@
                 height: auto;
                 min-height: 100vh;
                 padding: 120px 20px 80px;
+          
+                /*background-size: 180%;
+                background-position: center 60%;*/
+              
             }
 
             /* BADGES */
@@ -711,7 +716,7 @@
             position: relative;
         }
 
-               /* pill */
+        /* pill */
         .carousel::after {
             content: "🔍 Ampliar foto";
             position: absolute;
